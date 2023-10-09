@@ -1,6 +1,7 @@
 package com.betty.diceroller
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
@@ -14,7 +15,7 @@ class MainActivity : ComponentActivity() {
         var binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.btnName = "roll"
 
-        var diceImage1 = binding.diceImage2
+        var diceImage1 = binding.diceImage
         var diceImage2 = binding.diceImage2
 
         val rollButton: Button = findViewById(R.id.roll_button)
