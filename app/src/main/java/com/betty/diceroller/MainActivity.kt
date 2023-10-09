@@ -3,34 +3,37 @@ package com.betty.diceroller
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.databinding.DataBindingUtil
+import com.betty.diceroller.databinding.ActivityMainBinding
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        var binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.btnName = "roll"
+
+        var diceImage1 = binding.diceImage2
+        var diceImage2 = binding.diceImage2
 
         val rollButton: Button = findViewById(R.id.roll_button)
         rollButton.setOnClickListener {
             Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT).show()
-            rollDice()
+            rollDice(diceImage1, diceImage2)
         }
 
         // Do a dice roll when the app starts
-        rollDice()
+        rollDice(diceImage1, diceImage2)
 
     }
 
     /**
      * Roll the dice and update the screen with the result.
      */
-    private fun rollDice() {
-        val diceImage: ImageView = findViewById(R.id.dice_image)
-        val diceImage2: ImageView = findViewById(R.id.dice_image2)
-        diceImage.setImageResource(drawableResource())
-        diceImage2.setImageResource(drawableResource())
+    private fun rollDice(dice1: ImageView, dice2: ImageView) {
+        dice1.setImageResource(drawableResource())
+        dice2.setImageResource(drawableResource())
     }
 
     private fun drawableResource(): Int {
