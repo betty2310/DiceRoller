@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         var diceImage1 = binding.diceImage
         var diceImage2 = binding.diceImage2
 
-        val rollButton: Button = findViewById(R.id.roll_button)
+        var rollButton = binding.rollButton
         rollButton.setOnClickListener {
             Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT).show()
             rollDice(diceImage1, diceImage2)
